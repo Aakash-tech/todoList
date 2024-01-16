@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="todo">
+        <h1>TODO List</h1>
+        <input type="text" id="task" placeholder="Enter Your Task">
+        <input type="text" id="desc" placeholder="Enter desc">
+        <button onclick="Add()">Add</button>
+        
+    </div>
+    <div id="newTask"></div>
+    <script>
+        
+        function Add() {
+            var a = document.getElementById('task').value;
+            var b = document.getElementById('desc').value;
+            const hd = document.createElement('h2')
+            const bd = document.createElement('p')
+            const bt = document.createElement('button')
+            localStorage.setItem("newTask",JSON.stringify[a,b])
+            hd.innerHTML=a+"<br>"
+            bd.innerHTML =b
+            bt.innerHTML = "remove"
+            bt.addEventListener('click',function handleClick(e){
+                localStorage.removeItem("newTask")
+                hd.remove()
+                bd.remove()
+                bt.remove()
+            })
+            document.getElementById("newTask").appendChild(hd)
+            document.getElementById("newTask").appendChild(bd)
+            document.getElementById("newTask").appendChild(bt)
+            // document.getElementById("newTask").innerHTML = `
+            // <h2>${a}</h2>
+            // <p>${b}</p>
+            // <button onclick="dlt()">Remove</button>
+            // `
+            task.value= ""
+            desc.value= ""
+        }
+        
+    </script>
+</body>
+
+</html>
